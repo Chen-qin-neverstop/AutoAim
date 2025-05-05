@@ -1,28 +1,65 @@
-#ifndef ARMOR_TRACKER_H
-#define ARMOR_TRACKER_H
+#ifndef ARMOR_DETECTION_SERVER_H
+#define ARMOR_DETECTION_SERVER_H
 
-#include "KalmanFilter.h"
-#include <opencv2/opencv.hpp>
-#include <memory>
+#include "Protocol.h"
+#include "ImageProcess.h"
+#include "CoordinateTransformer.h"
+#include "MotionEstimator.h"
+#include "RotationCenterCalculator.h"
+#include "ArmorTracker.h"
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <queue>
+#include <atomic>
 
-class ArmorTracker {
+class ArmorDetectionServer {
 public:
-    ArmorTracker(const cv::Point3f& initial_position, double dt);
+    ArmorDetectionServer(int port, int worker_threads = 4);
+    ~ArmorDetectionServer();
     
-    void update(const cv::Point3f& new_position, double dt);
-    cv::Point3f predictNextPosition() const;
-    
-    int getLostCount() const { return lost_count_; }
-    void incrementLostCount() { lost_count_++; }
-    void resetLostCount() { lost_count_ = 0; }
-    
-    double getLastUpdateTime() const { return last_update_time_; }
+    void run();
+    void stop();
 
 private:
-    std::unique_ptr<KalmanFilter> kf_;
-    int lost_count_ = 0;
-    double last_dt_ = 0.1;
-    double last_update_time_ = 0;
+    struct ClientTask {
+        int socket;
+        MessageBuffer message;
+    };
+
+    void networkThread();
+    void processingThread();
+    
+    void handleClient(int client_socket);
+    void handleImageMessage(int client_socket, const MessageBuffer& firstMsg);
+    void processImageAndSend(int client_socket, const cv::Mat& image, uint32_t dataID);
+    void handleTransformRequest(int client_socket, const MessageBuffer& msg);
+    void rotationMatrixToEulerAngles(const cv::Mat &R, double &roll, double &pitch, double &yaw);
+
+    // 线程安全队列
+    std::queue<ClientTask> task_queue_;
+    std::mutex queue_mutex_;
+    std::condition_variable queue_cond_;
+    
+    // 线程控制
+    std::atomic<bool> running_{false};
+    std::thread network_thread_;
+    std::vector<std::thread> worker_threads_;
+    
+    // 资源
+    int port_;
+    int server_fd_;
+    cv::Mat camera_matrix_;
+    cv::Mat dist_coeffs_;
+    RotationCenterCalculator rotation_center_calculator_;
+    
+    // 装甲板跟踪器
+    std::unordered_map<uint32_t, std::unique_ptr<ArmorTracker>> armor_trackers_;
+    std::mutex tracker_mutex_;
+    
+    // 运动状态记录
+    std::unordered_map<uint32_t, MotionEstimator> motion_estimators_;
+    std::unordered_map<uint32_t, cv::Point3f> rotation_centers_;
 };
 
-#endif // ARMOR_TRACKER_H
+#endif // ARMOR_DETECTION_SERVER_H
