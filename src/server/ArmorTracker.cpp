@@ -11,7 +11,7 @@ ArmorTracker::ArmorTracker(const cv::Point3f& initial_position, double dt)
     kf_ = std::make_unique<KalmanFilter>(6, 3); // 6状态(x,y,z,vx,vy,vz), 3测量(x,y,z)
     
     cv::Mat state = (cv::Mat_<float>(6,1) << 
-        initial_position.x, initial_position.y, initial_position.z, 0, 0, 0;
+        initial_position.x, initial_position.y, initial_position.z, 0, 0, 0);
     kf_->init(state);
     
     // 设置初始转移矩阵
@@ -25,7 +25,7 @@ ArmorTracker::ArmorTracker(const cv::Point3f& initial_position, double dt)
         0,0,noise,0,0,0,
         0,0,0,noise,0,0,
         0,0,0,0,noise,0,
-        0,0,0,0,0,noise;
+        0,0,0,0,0,noise);
     kf_->setProcessNoiseCov(Q);
 }
 
@@ -41,7 +41,7 @@ void ArmorTracker::update(const cv::Point3f& new_position, double dt) {
     
     // 更新滤波器
     cv::Mat measurement = (cv::Mat_<float>(3,1) << 
-        new_position.x, new_position.y, new_position.z;
+        new_position.x, new_position.y, new_position.z);
     kf_->correct(measurement);
     
     resetLostCount();
