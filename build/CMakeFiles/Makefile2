@@ -109,12 +109,12 @@ CMakeFiles/armor_detection_server.dir/clean:
 CMakeFiles/video_client.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_client.dir/build.make CMakeFiles/video_client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_client.dir/build.make CMakeFiles/video_client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles --progress-num=8,9 "Built target video_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles --progress-num=8,9,10 "Built target video_client"
 .PHONY : CMakeFiles/video_client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/video_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/video_client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles 0
 .PHONY : CMakeFiles/video_client.dir/rule

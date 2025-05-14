@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build",
+  "command": "/usr/bin/c++  -I/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/include -isystem /usr/local/opencv3.4/include/opencv4 -std=gnu++17 -o CMakeFiles/armor_detection_server.dir/src/server/ArmorDetectionServer.cpp.o -c /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/ArmorDetectionServer.cpp",
+  "file": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/ArmorDetectionServer.cpp"
+},
+{
+  "directory": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build",
+  "command": "/usr/bin/c++  -I/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/include -isystem /usr/local/opencv3.4/include/opencv4 -std=gnu++17 -o CMakeFiles/armor_detection_server.dir/src/server/Protocol.cpp.o -c /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/Protocol.cpp",
+  "file": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/Protocol.cpp"
+},
+{
+  "directory": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build",
+  "command": "/usr/bin/c++  -I/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/include -isystem /usr/local/opencv3.4/include/opencv4 -std=gnu++17 -o CMakeFiles/armor_detection_server.dir/src/server/ImageProcess.cpp.o -c /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/ImageProcess.cpp",
+  "file": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/ImageProcess.cpp"
+},
+{
+  "directory": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build",
+  "command": "/usr/bin/c++  -I/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/include -isystem /usr/local/opencv3.4/include/opencv4 -std=gnu++17 -o CMakeFiles/armor_detection_server.dir/src/server/ArmorTracker.cpp.o -c /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/ArmorTracker.cpp",
+  "file": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/ArmorTracker.cpp"
+},
+{
+  "directory": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build",
+  "command": "/usr/bin/c++  -I/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/include -isystem /usr/local/opencv3.4/include/opencv4 -std=gnu++17 -o CMakeFiles/armor_detection_server.dir/src/server/MotionEstimator.cpp.o -c /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/MotionEstimator.cpp",
+  "file": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/MotionEstimator.cpp"
+},
+{
+  "directory": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build",
+  "command": "/usr/bin/c++  -I/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/include -isystem /usr/local/opencv3.4/include/opencv4 -std=gnu++17 -o CMakeFiles/armor_detection_server.dir/src/server/RotationCenterCalculator.cpp.o -c /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/RotationCenterCalculator.cpp",
+  "file": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/RotationCenterCalculator.cpp"
+},
+{
+  "directory": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build",
+  "command": "/usr/bin/c++  -I/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/include -isystem /usr/local/opencv3.4/include/opencv4 -std=gnu++17 -o CMakeFiles/video_client.dir/src/client/VideoClient.cpp.o -c /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/client/VideoClient.cpp",
+  "file": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/client/VideoClient.cpp"
+},
+{
+  "directory": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build",
+  "command": "/usr/bin/c++  -I/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/include -isystem /usr/local/opencv3.4/include/opencv4 -std=gnu++17 -o CMakeFiles/video_client.dir/src/server/Protocol.cpp.o -c /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/Protocol.cpp",
+  "file": "/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/Protocol.cpp"
+}
+]

@@ -435,9 +435,6 @@ CMakeFiles/armor_detection_server.dir/src/server/ArmorDetectionServer.cpp.o: ../
   ../include/ImageProcess.h \
   ../include/MotionEstimator.h \
   ../include/RotationCenterCalculator.h \
-  ../include/CoordinateTransformer.h \
-  ../include/Pose.h \
-  ../include/Quaternion.h \
   /usr/include/x86_64-linux-gnu/sys/socket.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
   /usr/include/x86_64-linux-gnu/bits/socket.h \
@@ -457,6 +454,7 @@ CMakeFiles/armor_detection_server.dir/src/server/ArmorDetectionServer.cpp.o: ../
   /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/bits/in.h \
+  /usr/include/arpa/inet.h \
   /usr/include/unistd.h \
   /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -2603,6 +2601,8 @@ CMakeFiles/armor_detection_server.dir/src/server/RotationCenterCalculator.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
+/usr/include/arpa/inet.h:
+
 /usr/include/netinet/in.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
@@ -2616,10 +2616,6 @@ CMakeFiles/armor_detection_server.dir/src/server/RotationCenterCalculator.cpp.o:
 /usr/include/linux/posix_types.h:
 
 /usr/include/x86_64-linux-gnu/bits/socket.h:
-
-../include/Quaternion.h:
-
-../include/CoordinateTransformer.h:
 
 ../include/RotationCenterCalculator.h:
 
@@ -2648,8 +2644,6 @@ CMakeFiles/armor_detection_server.dir/src/server/RotationCenterCalculator.cpp.o:
 /usr/local/opencv3.4/include/opencv4/opencv2/stitching/detail/motion_estimators.hpp:
 
 /usr/local/opencv3.4/include/opencv4/opencv2/stitching/detail/warpers_inl.hpp:
-
-../include/Pose.h:
 
 /usr/local/opencv3.4/include/opencv4/opencv2/core/cuda.hpp:
 

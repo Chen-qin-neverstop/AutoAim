@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/video_client.dir/src/client/VideoClient.cpp.o"
   "CMakeFiles/video_client.dir/src/client/VideoClient.cpp.o.d"
+  "CMakeFiles/video_client.dir/src/server/Protocol.cpp.o"
+  "CMakeFiles/video_client.dir/src/server/Protocol.cpp.o.d"
   "video_client"
   "video_client.pdb"
 )

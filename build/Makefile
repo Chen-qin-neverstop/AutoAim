@@ -313,6 +313,7 @@ src/server/Protocol.o: src/server/Protocol.cpp.o
 # target to build an object file
 src/server/Protocol.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/armor_detection_server.dir/build.make CMakeFiles/armor_detection_server.dir/src/server/Protocol.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_client.dir/build.make CMakeFiles/video_client.dir/src/server/Protocol.cpp.o
 .PHONY : src/server/Protocol.cpp.o
 
 src/server/Protocol.i: src/server/Protocol.cpp.i
@@ -321,6 +322,7 @@ src/server/Protocol.i: src/server/Protocol.cpp.i
 # target to preprocess a source file
 src/server/Protocol.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/armor_detection_server.dir/build.make CMakeFiles/armor_detection_server.dir/src/server/Protocol.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_client.dir/build.make CMakeFiles/video_client.dir/src/server/Protocol.cpp.i
 .PHONY : src/server/Protocol.cpp.i
 
 src/server/Protocol.s: src/server/Protocol.cpp.s
@@ -329,6 +331,7 @@ src/server/Protocol.s: src/server/Protocol.cpp.s
 # target to generate assembly for a file
 src/server/Protocol.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/armor_detection_server.dir/build.make CMakeFiles/armor_detection_server.dir/src/server/Protocol.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/video_client.dir/build.make CMakeFiles/video_client.dir/src/server/Protocol.cpp.s
 .PHONY : src/server/Protocol.cpp.s
 
 src/server/RotationCenterCalculator.o: src/server/RotationCenterCalculator.cpp.o
