@@ -1,68 +1,57 @@
 #include "ArmorTracker.h"
 #include <chrono>
 
-ArmorTracker::ArmorTracker(const cv::Point3f& initial_position, double dt) 
-    : last_dt_(dt) {
-    
-    // 使用系统时间初始化
-    last_update_time_ = cv::getTickCount() / cv::getTickFrequency();
-    
-    // 初始化卡尔曼滤波器
-    kf_ = std::make_unique<KalmanFilter>(6, 3); // 6状态(x,y,z,vx,vy,vz), 3测量(x,y,z)
-    
-    cv::Mat state = (cv::Mat_<float>(6,1) << 
-        initial_position.x, initial_position.y, initial_position.z, 0, 0, 0);
-    kf_->init(state);
-    
-    // 设置初始转移矩阵
-    updateTransitionMatrix(dt);
-    
-    // 设置过程噪声
-    float noise = 0.1f * dt * dt;
-    cv::Mat Q = (cv::Mat_<float>(6,6) << 
-        noise,0,0,0,0,0,
-        0,noise,0,0,0,0,
-        0,0,noise,0,0,0,
-        0,0,0,noise,0,0,
-        0,0,0,0,noise,0,
-        0,0,0,0,0,noise);
-    kf_->setProcessNoiseCov(Q);
+ArmorTracker::ArmorTracker()
+    : last_timestamp_(0.0)
+    , velocity_(0, 0, 0)
+    , last_position_(0, 0, 0)
+    , predicted_position_(0, 0, 0) {
 }
 
-void ArmorTracker::update(const cv::Point3f& new_position, double dt) {
-    // 更新时间戳
-    last_update_time_ = cv::getTickCount() / cv::getTickFrequency();
+ArmorTracker::~ArmorTracker() {
+}
+
+cv::Point3f ArmorTracker::update(const cv::Point3f& position, double timestamp) {
+    std::lock_guard<std::mutex> lock(mutex_);
     
-    // 更新转移矩阵
-    if (dt != last_dt_) {
-        updateTransitionMatrix(dt);
-        last_dt_ = dt;
+    if (last_timestamp_ > 0) {
+        // 计算时间差
+        double dt = timestamp - last_timestamp_;
+        if (dt > 0) {
+            // 更新速度估计
+            cv::Point3f new_velocity = (position - last_position_) / dt;
+            // 使用指数移动平均来平滑速度
+            velocity_ = 0.7f * velocity_ + 0.3f * new_velocity;
+            
+            // 预测下一个位置
+            predicted_position_ = position + velocity_ * dt;
+        }
     }
     
-    // 更新滤波器
-    cv::Mat measurement = (cv::Mat_<float>(3,1) << 
-        new_position.x, new_position.y, new_position.z);
-    kf_->correct(measurement);
+    // 更新状态
+    last_position_ = position;
+    last_timestamp_ = timestamp;
+    position_history_.push_back(position);
     
-    resetLostCount();
+    // 保持历史记录在合理的大小
+    if (position_history_.size() > 30) {  // 保持约1秒的历史记录
+        position_history_.erase(position_history_.begin());
+    }
+    
+    return predicted_position_;
 }
 
-cv::Point3f ArmorTracker::predictNextPosition() const {
-    cv::Mat prediction = kf_->predict();
-    return cv::Point3f(
-        prediction.at<float>(0),
-        prediction.at<float>(1),
-        prediction.at<float>(2)
-    );
+cv::Point3f ArmorTracker::getLastPosition() const {
+    std::lock_guard<std::mutex> lock(mutex_);
+    return last_position_;
 }
 
-void ArmorTracker::updateTransitionMatrix(double dt) {
-    cv::Mat F = (cv::Mat_<float>(6,6) << 
-        1,0,0,dt,0,0,
-        0,1,0,0,dt,0,
-        0,0,1,0,0,dt,
-        0,0,0,1,0,0,
-        0,0,0,0,1,0,
-        0,0,0,0,0,1);
-    kf_->setTransitionMatrix(F);
+double ArmorTracker::getLastTimestamp() const {
+    std::lock_guard<std::mutex> lock(mutex_);
+    return last_timestamp_;
+}
+
+cv::Point3f ArmorTracker::getPredictedPosition() const {
+    std::lock_guard<std::mutex> lock(mutex_);
+    return predicted_position_;
 }

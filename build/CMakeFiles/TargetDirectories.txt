@@ -1,0 +1,8 @@
+/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles/armor_detection_server.dir
+/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles/video_client.dir
+/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles/edit_cache.dir
+/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles/rebuild_cache.dir
+/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles/list_install_components.dir
+/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles/install.dir
+/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles/install/local.dir
+/home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/build/CMakeFiles/install/strip.dir
