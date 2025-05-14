@@ -459,6 +459,9 @@ CMakeFiles/video_client.dir/src/client/VideoClient.cpp.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /usr/include/linux/close_range.h
+ /usr/include/execinfo.h
+ /usr/include/c++/11/cxxabi.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/cxxabi_tweaks.h
 
 CMakeFiles/video_client.dir/src/server/Protocol.cpp.o
  /home/chen/Project/Vscode/Code/AutoAIM/2025/AutoAim/src/server/Protocol.cpp

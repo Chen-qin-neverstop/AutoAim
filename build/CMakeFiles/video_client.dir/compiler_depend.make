@@ -457,7 +457,10 @@ CMakeFiles/video_client.dir/src/client/VideoClient.cpp.o: ../src/client/VideoCli
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
-  /usr/include/linux/close_range.h
+  /usr/include/linux/close_range.h \
+  /usr/include/execinfo.h \
+  /usr/include/c++/11/cxxabi.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/cxxabi_tweaks.h
 
 CMakeFiles/video_client.dir/src/server/Protocol.cpp.o: ../src/server/Protocol.cpp \
   /usr/include/stdc-predef.h \
@@ -884,6 +887,8 @@ CMakeFiles/video_client.dir/src/server/Protocol.cpp.o: ../src/server/Protocol.cp
   /usr/local/opencv3.4/include/opencv4/opencv2/video/background_segm.hpp
 
 
+/usr/include/x86_64-linux-gnu/c++/11/bits/cxxabi_tweaks.h:
+
 /usr/include/linux/close_range.h:
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
@@ -981,6 +986,8 @@ CMakeFiles/video_client.dir/src/server/Protocol.cpp.o: ../src/server/Protocol.cp
 /usr/include/c++/11/bits/locale_facets_nonio.tcc:
 
 /usr/include/libintl.h:
+
+/usr/include/c++/11/cxxabi.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
 
@@ -1701,6 +1708,8 @@ CMakeFiles/video_client.dir/src/server/Protocol.cpp.o: ../src/server/Protocol.cp
 /usr/include/c++/11/cstring:
 
 /usr/include/math.h:
+
+/usr/include/execinfo.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
